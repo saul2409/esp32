@@ -1,0 +1,329 @@
+[
+    {
+        "id": "546d067b0cc50740",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "98100f9ac946320a",
+        "type": "inject",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "5739f10b5e3d30e6"
+            ]
+        ]
+    },
+    {
+        "id": "17b4527a149af089",
+        "type": "debug",
+        "z": "546d067b0cc50740",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5739f10b5e3d30e6",
+        "type": "function",
+        "z": "546d067b0cc50740",
+        "name": "function 1",
+        "func": "if (msg.payload > 1) { \n\n    msg.payload = \"Llegó un número mayor que 1\"; \n\n    return msg; \n\n} else { \n\n    msg.payload = \"El valor es menor o igual que 1\"; \n\n    return msg; \n\n} ",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "17b4527a149af089"
+            ]
+        ]
+    },
+    {
+        "id": "35c8a4d56e0ddda6",
+        "type": "ui_button",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "group": "f3e533ce22bb9dd2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "envia a",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "a",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "9cd70dfc1176e5fb"
+            ]
+        ]
+    },
+    {
+        "id": "0cbc72116d9de40f",
+        "type": "ui_button",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "group": "f3e533ce22bb9dd2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "envia b",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "b",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "9cd70dfc1176e5fb"
+            ]
+        ]
+    },
+    {
+        "id": "9cd70dfc1176e5fb",
+        "type": "ui_text",
+        "z": "546d067b0cc50740",
+        "group": "f3e533ce22bb9dd2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "recibimos: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 290,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a8ddbe888f8921a4",
+        "type": "inject",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "5739f10b5e3d30e6"
+            ]
+        ]
+    },
+    {
+        "id": "a5f5c7165a1a1d41",
+        "type": "ui_slider",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "e08133df4ec7224d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 70,
+        "y": 420,
+        "wires": [
+            [
+                "18f330ef68659ab9",
+                "890f2d3152d59d64",
+                "1299ad11c36c7de0"
+            ]
+        ]
+    },
+    {
+        "id": "18f330ef68659ab9",
+        "type": "ui_gauge",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "group": "e08133df4ec7224d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 250,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "890f2d3152d59d64",
+        "type": "ui_chart",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "group": "e08133df4ec7224d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 250,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1299ad11c36c7de0",
+        "type": "file",
+        "z": "546d067b0cc50740",
+        "name": "",
+        "filename": "C:\\Users\\saul2\\OneDrive\\Escritorio\\clases_u\\esp32\\c5\\archivos\\´datos.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 380,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3e533ce22bb9dd2",
+        "type": "ui_group",
+        "name": "sensores",
+        "tab": "92aad3f930fd162b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e08133df4ec7224d",
+        "type": "ui_group",
+        "name": "controles",
+        "tab": "92aad3f930fd162b",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "92aad3f930fd162b",
+        "type": "ui_tab",
+        "name": "esp32 proyecto",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
